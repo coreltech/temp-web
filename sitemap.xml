@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  
+  <!-- Página Principal -->
+  <url>
+    <loc>https://aizenmystic.com/</loc>
+    <lastmod>2025-01-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://aizenmystic.com/img/og-index.jpg</image:loc>
+      <image:title>Aizen Mystic - Transforma tu Energía Interior</image:title>
+    </image:image>
+  </url>
+
+  <!-- Servicios -->
+  <url>
+    <loc>https://aizenmystic.com/servicios.html</loc>
+    <lastmod>2025-01-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://aizenmystic.com/img/og-servicios.jpg</image:loc>
+      <image:title>Servicios de Coaching y Sanación Espiritual</image:title>
+    </image:image>
+  </url>
+
+  <!-- Programa VIP -->
+  <url>
+    <loc>https://aizenmystic.com/programa-vip.html</loc>
+    <lastmod>2025-01-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://aizenmystic.com/img/og-vip.jpg</image:loc>
+      <image:title>Programa VIP de Transformación Personal</image:title>
+    </image:image>
+  </url>
+
+  <!-- Cursos -->
+  <url>
+    <loc>https://aizenmystic.com/cursos.html</loc>
+    <lastmod>2025-01-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://aizenmystic.com/img/og-cursos.jpg</image:loc>
+      <image:title>Cursos y Talleres de Transformación Personal</image:title>
+    </image:image>
+  </url>
+
+  <!-- Blog -->
+  <url>
+    <loc>https://aizenmystic.com/blog.html</loc>
+    <lastmod>2025-01-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://aizenmystic.com/img/og-blog.jpg</image:loc>
+      <image:title>Blog Espiritual - Aizen Mystic</image:title>
+    </image:image>
+  </url>
+
+  <!-- Sobre Mí -->
+  <url>
+    <loc>https://aizenmystic.com/sobre-mi.html</loc>
+    <lastmod>2025-01-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://aizenmystic.com/img/og-sobre-mi.jpg</image:loc>
+      <image:title>Auristela Izquierdo - Sobre Mí</image:title>
+    </image:image>
+  </url>
+
+  <!-- Contacto -->
+  <url>
+    <loc>https://aizenmystic.com/contacto.html</loc>
+    <lastmod>2025-01-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://aizenmystic.com/img/og-contacto.jpg</image:loc>
+      <image:title>Contacto - Aizen Mystic</image:title>
+    </image:image>
+  </url>
+
+  <!-- Artículos del Blog (ejemplos - agrega más según crees contenido) -->
+  <url>
+    <loc>https://aizenmystic.com/posts/mindset-fengshui.html</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://aizenmystic.com/img/post-mindset-fengshui.jpg</image:loc>
+      <image:title>Mindset y Feng Shui: La Armonía Entre tu Mente y tu Espacio</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://aizenmystic.com/posts/abuso-narcisista.html</loc>
+    <lastmod>2025-01-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://aizenmystic.com/img/post-abuso-narcisista.jpg</image:loc>
+      <image:title>El Abuso Narcisista y el Camino hacia la Soberanía Emocional</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://aizenmystic.com/posts/tarot-evolutivo.html</loc>
+    <lastmod>2025-01-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://aizenmystic.com/img/post-tarot-evolutivo.jpg</image:loc>
+      <image:title>Tarot Evolutivo: Herramienta de Autoconocimiento</image:title>
+    </image:image>
+  </url>
+
+  <!-- Páginas Legales -->
+  <url>
+    <loc>https://aizenmystic.com/politica-privacidad.html</loc>
+    <lastmod>2025-01-29</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+  <url>
+    <loc>https://aizenmystic.com/gracias.html</loc>
+    <lastmod>2025-01-29</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.2</priority>
+  </url>
+
+</urlset>

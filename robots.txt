@@ -1,0 +1,63 @@
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://aizenmystic.com/sitemap.xml
+
+# Allow all important pages
+Allow: /index.html
+Allow: /servicios.html
+Allow: /programa-vip.html
+Allow: /cursos.html
+Allow: /blog.html
+Allow: /sobre-mi.html
+Allow: /contacto.html
+Allow: /posts/
+Allow: /css/
+Allow: /img/
+Allow: /fonts/
+
+# Disallow unnecessary directories
+Disallow: /admin/
+Disallow: /cgi-bin/
+Disallow: /tmp/
+Disallow: /private/
+Disallow: /backup/
+
+# Allow search engines but with crawl delay for server resources
+Crawl-delay: 2
+
+# Specific rules for major search engines
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 2
+
+User-agent: Slurp
+Allow: /
+Crawl-delay: 3
+
+# Block AI training bots (opcional)
+User-agent: ChatGPT-User
+Disallow: /
+User-agent: GPTBot
+Disallow: /
+User-agent: CCBot
+Disallow: /
+
+# Block scraping bots
+User-agent: MJ12bot
+Disallow: /
+User-agent: AhrefsBot
+Crawl-delay: 10
+
+# Allow social media bots
+User-agent: FacebookBot
+Allow: /
+User-agent: Twitterbot
+Allow: /
+User-agent: LinkedInBot
+Allow: /
