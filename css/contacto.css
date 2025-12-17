@@ -1,0 +1,665 @@
+/* =================================================================== */
+/* === CONTACTO.CSS - ESTILOS EXCLUSIVOS DE contacto.html =========== */
+/* Proyecto: Aizen Mystic                                              */
+/* Página: contacto.html                                               */
+/* Fecha: 02 de septiembre de 2025                                     */
+/* Versión: Modular, limpia, sin ruido                                 */
+/* =================================================================== */
+
+/* === 1. VARIABLES Y TIPOGRAFÍA ====================================== */
+:root {
+  --footer-bg: #b877c9; /* nuevo color de footer */
+  --blanco: #ffffff;
+  --morado: #903AA8;
+  --beige: #F8F5F2;
+  --negro: #3E2723;
+  --gris-oscuro: #5D4037;
+  --gris-medio: #E6D5C3;
+  --font-devanagari: 'Adobe Devanagari', serif;
+  --font-sybilla: 'SybillaPro-Book', 'Playfair Display', serif;
+}
+
+@font-face {
+  font-family: 'Adobe Devanagari';
+  src: url('fonts/AdobeDevanagari-Regular.woff2') format('woff2'),
+       url('fonts/AdobeDevanagari-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'SybillaPro-Book';
+  src: url('fonts/SybillaPro-Book.woff2') format('woff2'),
+       url('fonts/SybillaPro-Book.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+body {
+  font-family: var(--font-sybilla);
+  color: #1A1A1A;
+  background: var(--beige);
+  line-height: 1.7;
+}
+
+h1, h2, h3, .highlight {
+  font-family: var(--font-devanagari);
+}
+/* === 2. HEADER ===================================================== */
+.header {
+  background-color: var(--beige);
+  background-image: url('../img/fondo-sakura-header.jpg');
+  background-repeat: no-repeat;
+  background-position: left center;
+  background-size: auto 80%;
+  border-bottom: 1px solid var(--gris-medio);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+}
+
+.header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 80px;
+  padding: 0 15px;
+  position: relative;
+  z-index: 2;
+}
+
+.header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--beige);
+  opacity: 0.75;
+  z-index: -1;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+
+.logo-img {
+  height: 60px;
+  width: auto; /* ← Esto mantiene la proporción */
+  transition: transform 0.3s ease;
+}
+
+.logo-img:hover {
+  transform: scale(1.05);
+}
+
+.logo-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 700;
+  font-size: 1.5em;
+  color: var(--negro);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  transition: color 0.3s ease;
+}
+
+.logo:hover .logo-text {
+  color: var(--morado);
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  margin-left: auto;
+}
+
+.nav a {
+  font-size: 1.05em;
+  color: var(--negro);
+  text-decoration: none;
+  padding: 5px 0;
+  position: relative;
+}
+
+.nav a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--morado);
+  transition: width 0.3s ease;
+}
+
+.nav a:hover::after {
+  width: 100%;
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.lang-icon {
+  font-size: 1.3em;
+  color: var(--morado);
+}
+
+/* === HERO UNIVERSAL - POSICIONAMIENTO POR COORDENADAS (X, Y) ====== */
+.hero {
+  position: relative;
+  height: 80vh;
+  overflow: hidden;
+  margin-top: 60px;
+}
+
+.hero-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  z-index: -1;
+}
+
+.hero-bg::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(144, 58, 168, 0.3), rgba(0,0,0,0.6));
+  z-index: -1;
+}
+
+/* --- Título posicionable --- */
+.hero-title-coords {
+  position: absolute;
+  color: white;
+  font-size: 3em;
+  font-family: 'Adobe Devanagari', serif;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.7);
+  z-index: 2;
+  max-width: 800px;
+  text-align: center;
+  left: 72%;
+  top: 10%;
+  transform: translateX(-50%);
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* --- Subtítulo posicionable --- */
+.hero-subtitle-coords {
+  position: absolute;
+  color: var(--gris-medio);
+  font-size: 1.5em;
+  text-shadow: 0 1px 5px rgba(0,0,0,0.7);
+  z-index: 2;
+  max-width: 1100px;
+  text-align: center;
+  left: 40%;
+  top: 85%;
+  transform: translateX(-50%);
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* --- Botón o CTA posicionable --- */
+.hero-btn-coords {
+  position: absolute;
+  z-index: 2;
+  left: 50%;
+  top: 62%;
+  transform: translateX(-50%);
+}
+/* === 4. FORMULARIO Y CONTACTO ====================================== */
+.contact-main {
+  padding: 80px 0;
+  background: var(--beige);
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  align-items: start;
+}
+
+.contact-form h2 {
+  font-size: 2.2em;
+  margin-bottom: 30px;
+  color: var(--negro);
+}
+
+.contact-form input,
+.contact-form select,
+.contact-form textarea {
+  width: 100%;
+  padding: 12px 15px;
+  margin-bottom: 20px;
+  border: 1px solid var(--gris-medio);
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 1em;
+}
+
+.contact-form textarea {
+  resize: vertical;
+}
+/* === 5. MÉTODOS DE CONTACTO ======================================== */
+.contact-info h3 {
+  font-size: 1.6em;
+  margin-bottom: 20px;
+  color: var(--negro);
+}
+
+.contact-method {
+  margin-bottom: 30px;
+}
+
+.contact-method h4 {
+  margin-bottom: 8px;
+  color: var(--morado);
+}
+
+.contact-method p {
+  margin: 0 0 10px;
+  color: var(--gris-oscuro);
+}
+
+.contact-method a {
+  color: var(--morado);
+  text-decoration: none;
+}
+
+.contact-method a:hover {
+  text-decoration: underline;
+}
+/* === 6. TESTIMONIO DESTACADO ======================================= */
+.testimonial-highlight {
+  padding: 80px 0;
+  background: white;
+  text-align: center;
+}
+
+.testimonial-highlight blockquote {
+  max-width: 800px;
+  margin: 0 auto;
+  font-style: italic;
+  font-size: 1.4em;
+  color: var(--gris-oscuro);
+  line-height: 1.6;
+  background: var(--beige);
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.testimonial-highlight cite {
+  display: block;
+  margin-top: 20px;
+  font-weight: 600;
+  color: var(--negro);
+}
+/* === 7. NEWSLETTER ================================================= */
+.newsletter {
+  padding: 60px 0;
+  background: var(--beige);
+  text-align: center;
+}
+
+.newsletter h2 {
+  font-size: 2em;
+  margin-bottom: 15px;
+  color: var(--negro);
+}
+
+.newsletter p {
+  max-width: 600px;
+  margin: 0 auto 25px;
+  color: var(--gris-oscuro);
+  font-size: 1.1em;
+}
+
+.newsletter-form {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.newsletter-form input {
+  padding: 12px 20px;
+  width: 300px;
+  border: none;
+  border-radius: 30px;
+}
+
+.newsletter-form button {
+  border-radius: 30px;
+}
+
+.small {
+  margin-top: 15px;
+  opacity: 0.7;
+  font-size: 0.9em;
+}
+/* === 8. BOTONES ==================================================== */
+.btn-primary {
+  background: var(--morado);
+  color: white;
+  padding: 12px 28px;
+  text-decoration: none;
+  border-radius: 30px;
+  display: inline-block;
+  font-weight: 600;
+  transition: all 0.3s;
+}
+
+.btn-primary:hover {
+  background: #7a2f8d;
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--negro);
+  border: 2px solid var(--negro);
+  padding: 12px 28px;
+  text-decoration: none;
+  border-radius: 30px;
+  display: inline-block;
+  font-weight: 600;
+  transition: all 0.3s;
+}
+
+.btn-secondary:hover {
+  background: var(--negro);
+  color: white;
+}
+/* === 9. FOOTER ===================================================== */
+.footer {
+  background: var(--footer-bg);
+  color: var(--beige);
+  padding: 30px 0 15px;
+  font-size: 0.85em;
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: 2fr 1fr 2fr 2fr;
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-logo-img {
+  height: 60px;
+  width: auto; /* ← Esto mantiene la proporción */
+  transition: transform 0.3s ease;
+}
+
+.footer-contact a {
+  color: var(--blanco);
+  text-decoration: none;
+}
+
+.social-links a {
+  color: var(--blanco);
+  text-decoration: none;
+}
+
+.footer-legal a {
+  color: var(--blanco);
+  text-decoration: none;
+}
+/* === 10. WHATSAPP FLUTUANTE ======================================== */
+.whatsapp-btn {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 60px;
+  height: 60px;
+  background: #25D366;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8em;
+  text-decoration: none;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  z-index: 1000;
+}
+/* === HERO GENÉRICO REUTILIZABLE === */
+.hero-section {
+  position: relative;
+  height: 80vh;
+  overflow: hidden;
+  margin-top: 60px; /* altura del header fijo */
+}
+
+.hero-section .hero-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  z-index: -1;
+}
+
+.hero-section .hero-bg::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(144, 58, 168, 0.2), rgba(0,0,0,0.6));
+  z-index: -1;
+}
+
+.hero-section .hero-content {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 0 20px;
+  color: white;
+}
+
+.hero-section .hero-title {
+  font-size: 3.5em;
+  font-family: var(--font-devanagari);
+  text-shadow: 0 2px 10px rgba(0,0,0,0.7);
+  margin: 0;
+  max-width: 90%;
+}
+
+.hero-section .hero-subtitle {
+  font-size: 1.4em;
+  margin: 20px 0;
+  max-width: 700px;
+  text-shadow: 0 1px 5px rgba(0,0,0,0.7);
+}
+
+.hero-section .hero-cta {
+  margin-top: 20px;
+}
+/* === ESTILOS MÓVIL - CORREGIDO Y AL FINAL === */
+@media (max-width: 768px) {
+  /* Forzar visibilidad del ícono hamburguesa */
+  .mobile-toggle {
+    display: block !important;
+    position: fixed !important;
+    top: 15px !important;
+    right: 15px !important; /* ✅ 15px desde el borde derecho */
+    z-index: 9999 !important;
+    background: white !important;
+    color: #1A1A1A !important;
+    border: 2px solid #903AA8 !important;
+    width: 44px !important;
+    height: 44px !important;
+    border-radius: 50% !important;
+    font-size: 20px !important;
+    cursor: pointer !important;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  /* Menú desplegable */
+  .nav {
+    display: none !important;
+    position: absolute !important;
+    top: 60px !important;
+    left: 0 !important;
+    width: 100% !important;
+    background: #F8F5F2 !important;
+    padding: 15px !important;
+    flex-direction: column !important;
+    gap: 15px !important;
+    z-index: 9998 !important;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1) !important;
+  }
+
+  .nav.mobile-open {
+    display: flex !important;
+  }
+
+  /* Hero responsive */
+  .hero-title-coords,
+  .hero-subtitle-coords {
+    position: static !important;
+    transform: none !important;
+    left: auto !important;
+    top: auto !important;
+    text-align: center !important;
+    white-space: normal !important;
+    max-width: 90% !important;
+    margin: 0 auto !important;
+  }
+
+  .hero-title-coords {
+    font-size: 2em;
+    margin-top: 30vh;
+    margin-bottom: 20px;
+  }
+
+  .hero-subtitle-coords {
+    font-size: 1.1em;
+    margin: 10px auto 25px;
+  }
+
+  .hero {
+    height: auto;
+    min-height: 70vh;
+    margin-top: 60px;
+  }
+
+  /* Ajustes adicionales */
+  .contact-grid {
+    grid-template-columns: 1fr !important;
+    gap: 30px !important;
+    padding: 0 15px !important;
+  }
+
+  .newsletter-form {
+    flex-direction: column !important;
+  }
+
+  .newsletter-form input,
+  .newsletter-form button {
+    width: 100% !important;
+  }
+
+  .footer-content {
+    grid-template-columns: 1fr !important;
+    text-align: center !important;
+  }
+
+  .footer-contact,
+  .footer-social {
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 8px !important;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    width: 100% !important;
+    max-width: 280px !important;
+    margin: 10px auto !important;
+  }
+}
+@media (max-width: 768px) {
+  .mobile-toggle {
+    display: block !important;
+    position: fixed !important;
+    top: 10px !important;
+    right: 50px !important; /* ✅ Solución adaptativa */
+    z-index: 9999 !important;
+    background: white !important;
+    color: #1A1A1A !important;
+    border: 2 mim solid #903AA8 !important;
+    width: 44px !important;
+    height: 44px !important;
+    border-radius: 50% !important;
+    font-size: 20px !important;
+    cursor: pointer !important;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+}
+/* === 9. WHATSAPP Y OTROS =========================================== */
+.whatsapp-btn {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 60px;
+  height: 60px;
+  background: #25D366;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8em;
+  text-decoration: none;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  z-index: 1000;
+}
+
+.whatsapp-btn img {
+  width: 32px;
+  height: auto;
+  display: block;
+}

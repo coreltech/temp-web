@@ -1,0 +1,171 @@
+/* =================================================================== */
+/* === POST.CSS - ESTILOS EXCLUSIVOS DE post.html ==================== */
+/* Proyecto: Aizen Mystic                                              */
+/* Página: post.html (artículo dinámico)                               */
+/* Fecha: 02 de septiembre de 2025                                     */
+/* Versión: Modular, limpia, solo lo necesario                         */
+/* =================================================================== */
+
+/* === 1. VARIABLES Y TIPOGRAFÍA ====================================== */
+:root {
+  --morado: #903AA8;
+  --beige: #F8F5F2;
+  --negro: #3E2723;
+  --gris-oscuro: #5D4037;
+  --font-devanagari: 'Adobe Devanagari', serif;
+  --font-sybilla: 'SybillaPro-Book', 'Playfair Display', serif;
+}
+
+@font-face {
+  font-family: 'Adobe Devanagari';
+  src: url('fonts/AdobeDevanagari-Regular.woff2') format('woff2'),
+       url('fonts/AdobeDevanagari-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'SybillaPro-Book';
+  src: url('fonts/SybillaPro-Book.woff2') format('woff2'),
+       url('fonts/SybillaPro-Book.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Brilliant Signature';
+  src: url('fonts/Brilliant signature  regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+body {
+  font-family: var(--font-sybilla);
+  color: #1A1A1A;
+  background: var(--beige);
+  line-height: 1.7;
+  margin: 0;
+  padding: 0;
+}
+
+h1, h2, h3, .highlight {
+  font-family: var(--font-devanagari);
+}
+/* === 2. HEADER (solo visible si se integra) ======================== */
+/* Nota: Este post no tiene header, pero si luego lo integras, descomenta */
+/*
+.header {
+  background-color: var(--beige);
+  border-bottom: 1px solid #E6D5C3;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  padding: 10px 0;
+}
+/* === 3. CONTENEDOR PRINCIPAL ======================================= */
+#post-container {
+  max-width: 800px;
+  margin: 80px auto;
+  padding: 20px;
+  background: white;
+  min-height: 100vh;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+  border-radius: 12px;
+  overflow: hidden;
+}
+/* === 4. ARTÍCULO =================================================== */
+#post-container article {
+  padding: 0 20px;
+}
+
+#post-container h1 {
+  font-size: 2.8em;
+  text-align: center;
+  margin: 30px 0 20px;
+  color: var(--morado);
+  line-height: 1.3;
+  font-family: var(--font-devanagari);
+}
+
+#post-container img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin: 25px 0;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+  border: 1px solid var(--gris-oscuro);
+}
+
+#post-container div {
+  font-size: 1.1em;
+  line-height: 1.8;
+  color: var(--gris-oscuro);
+}
+
+#post-container div p {
+  margin-bottom: 20px;
+}
+
+#post-container div h2 {
+  font-family: var(--font-devanagari);
+  font-size: 1.8em;
+  margin: 40px 0 20px;
+  color: var(--morado);
+}
+
+#post-container div blockquote {
+  background: var(--morado);
+  color: white;
+  font-style: italic;
+  padding: 25px;
+  border-radius: 10px;
+  margin: 30px 0;
+  text-align: center;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  border-left: 5px solid #D4A52A;
+}
+
+#post-container div ul,
+#post-container div ol {
+  margin: 20px 0;
+  padding-left: 30px;
+}
+
+#post-container div li {
+  margin-bottom: 10px;
+}
+/* === 5. LINKS Y LLAMADOS A LA ACCIÓN =============================== */
+#post-container a {
+  color: var(--morado);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+#post-container a:hover {
+  text-decoration: underline;
+}
+/* === 6. RESPONSIVE (móviles) ======================================= */
+@media (max-width: 768px) {
+  #post-container {
+    margin: 70px 15px;
+    padding: 15px;
+    border-radius: 8px;
+  }
+
+  #post-container h1 {
+    font-size: 2.2em;
+  }
+
+  #post-container img {
+    height: 250px;
+  }
+
+  #post-container div {
+    font-size: 1.05em;
+  }
+}

@@ -1,0 +1,794 @@
+/* =================================================================== */
+/* === SOBRE-MI.CSS - ESTILOS EXCLUSIVOS DE sobre-mi.html =========== */
+/* Proyecto: Aizen Mystic                                              */
+/* Página: sobre-mi.html                                               */
+/* Fecha: 02 de septiembre de 2025                                     */
+/* Versión: Limpia, modular, con hero posicionable                     */
+/* =================================================================== */
+
+/* === 1. VARIABLES Y TIPOGRAFÍA ====================================== */
+:root {
+  --footer-bg: #b877c9; /* nuevo color de footer */
+  --blanco: #ffffff;
+  --morado: #903AA8;
+  --beige: #F8F5F2;
+  --negro: #3E2723;
+  --gris-oscuro: #5D4037;
+  --gris-medio: #E6D5C3;
+  --font-devanagari: 'Adobe Devanagari', serif;
+  --font-sybilla: 'SybillaPro-Book', 'Playfair Display', serif;
+}
+
+@font-face {
+  font-family: 'Adobe Devanagari';
+  src: url('fonts/AdobeDevanagari-Regular.woff2') format('woff2'),
+       url('fonts/AdobeDevanagari-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'SybillaPro-Book';
+  src: url('fonts/SybillaPro-Book.woff2') format('woff2'),
+       url('fonts/SybillaPro-Book.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+body {
+  font-family: var(--font-sybilla);
+  color: #1A1A1A;
+  background: var(--beige);
+  line-height: 1.7;
+}
+
+h1, h2, h3, .highlight {
+  font-family: var(--font-devanagari);
+}
+/* === 2. HEADER ===================================================== */
+.header {
+  background-color: var(--beige);
+  background-image: url('../img/fondo-sakura-header.jpg');
+  background-repeat: no-repeat;
+  background-position: left center;
+  background-size: auto 80%;
+  border-bottom: 1px solid var(--gris-medio);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+}
+
+.header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 80px;
+  padding: 0 15px;
+  position: relative;
+  z-index: 2;
+}
+
+.header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--beige);
+  opacity: 0.75;
+  z-index: -1;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+
+.logo-img {
+  height: 60px;
+  width: auto; /* ← Esto mantiene la proporción */
+  transition: transform 0.3s ease;
+}
+
+.logo-img:hover {
+  transform: scale(1.05);
+}
+
+.logo-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 700;
+  font-size: 1.5em;
+  color: var(--negro);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  transition: color 0.3s ease;
+}
+
+.logo:hover .logo-text {
+  color: var(--morado);
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  margin-left: auto;
+}
+
+.nav a {
+  font-size: 1.05em;
+  color: var(--negro);
+  text-decoration: none;
+  padding: 5px 0;
+  position: relative;
+}
+
+.nav a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--morado);
+  transition: width 0.3s ease;
+}
+
+.nav a:hover::after {
+  width: 100%;
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.lang-icon {
+  font-size: 1.3em;
+  color: var(--morado);
+}
+
+.mobile-toggle {
+  display: none;
+  font-size: 1.5em;
+  cursor: pointer;
+  color: var(--negro);
+}
+/* === HERO UNIVERSAL - POSICIONAMIENTO POR COORDENADAS (X, Y) ====== */
+.hero {
+  position: relative;
+  height: 80vh;
+  overflow: hidden;
+  margin-top: 80px;
+}
+
+.hero-bg {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center 25%; /* ← Ajusta este valor */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.hero-bg::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(144, 58, 168, 0.3), rgba(0,0,0,0.6));
+  z-index: -1;
+}
+
+/* --- Título posicionable --- */
+.hero-title-coords {
+  position: absolute;
+  color: white;
+  font-size: 3em;
+  font-family: 'Adobe Devanagari', serif;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.7);
+  z-index: 2;
+  max-width: 800px;
+  text-align: center;
+  left: 80%;
+  top: 40%;
+  transform: translateX(-50%);
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* --- Subtítulo posicionable --- */
+.hero-subtitle-coords {
+  position: absolute;
+  color: var(--gris-medio);
+  font-size: 1.2em;
+  text-shadow: 0 1px 5px rgba(0,0,0,0.7);
+  z-index: 2;
+  max-width: 700px;
+  text-align: center;
+  left: 50%;
+  top: 52%;
+  transform: translateX(-50%);
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* --- Botón o CTA posicionable --- */
+.hero-btn-coords {
+  position: absolute;
+  z-index: 2;
+  left: 50%;
+  top: 62%;
+  transform: translateX(-50%);
+}
+
+/* === 4. PERGAMINO JAPONÉS ========================================== */
+.scroll-container {
+  padding: 80px 0;
+  background: var(--beige);
+  text-align: center;
+}
+
+.parchment {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 60px;
+  background: url('../img/parchment-texture.webp') no-repeat center;
+  background-size: cover;
+  border: 1px solid var(--gris-medio);
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.parchment::before {
+  content: '';
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
+  border: 1px dashed rgba(144, 58, 168, 0.15);
+  pointer-events: none;
+  border-radius: 10px;
+}
+
+.parchment-content {
+  position: relative;
+  z-index: 2;
+  color: var(--negro);
+  line-height: 1.8;
+  text-align: left;
+}
+
+.parchment-content h2 {
+  color: var(--morado);
+  font-size: 2em;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.parchment-content p {
+  margin-bottom: 20px;
+  color: var(--gris-oscuro);
+  line-height: 1.7;
+}
+
+.parchment-content blockquote {
+  background: var(--morado);
+  color: white;
+  font-style: italic;
+  padding: 20px;
+  border-radius: 10px;
+  margin: 30px 0;
+  text-align: center;
+  font-size: 1.1em;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  border-left: 5px solid #D4A52A;
+}
+
+.parchment-content a {
+  color: var(--morado);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.parchment-content a:hover {
+  text-decoration: underline;
+}
+/* === 5. PILARES DEL CAMINO ========================================= */
+.pilares-pergamino {
+  padding: 60px 0;
+  background: url('../img/parchment-texture.jpg') no-repeat center;
+  background-size: cover;
+  text-align: center;
+  position: relative;
+}
+
+.pilares-pergamino::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(248, 245, 242, 0.92);
+  z-index: 1;
+  border-radius: 12px;
+}
+
+.pilares-pergamino .container {
+  position: relative;
+  z-index: 2;
+}
+
+.pilares-pergamino .section-title {
+  color: #903AA8;
+  font-size: 2em;
+  margin-bottom: 40px;
+  position: relative;
+  display: inline-block;
+}
+
+.pilares-pergamino .section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 2px;
+  background: #903AA8;
+}
+
+.pilar-manuscrito {
+  max-width: 800px;
+  margin: 0 auto 50px;
+  padding: 25px 40px;
+  background: transparent;
+  border-left: 2px solid #903AA8;
+  border-radius: 8px;
+  text-align: left;
+  transition: transform 0.3s ease;
+  position: relative;
+}
+
+.pilar-manuscrito:last-child {
+  margin-bottom: 0;
+}
+
+.pilar-manuscrito::before {
+  content: '•';
+  position: absolute;
+  left: -11px;
+  top: 25px;
+  background: white;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #903AA8;
+  font-weight: bold;
+}
+
+.pilar-manuscrito:hover {
+  transform: translateY(-5px);
+  border-left-color: #D4A52A;
+}
+
+.pilar-manuscrito h3 {
+  color: #903AA8;
+  font-size: 1.5em;
+  margin-bottom: 12px;
+  transition: color 0.3s ease;
+}
+
+.pilar-manuscrito p {
+  color: #5D4037;
+  line-height: 1.7;
+  font-size: 1.05em;
+  margin: 0;
+}
+/* === 6. BOTONES ==================================================== */
+.btn-primary {
+  background: var(--morado);
+  color: white;
+  padding: 12px 28px;
+  text-decoration: none;
+  border-radius: 30px;
+  display: inline-block;
+  font-weight: 600;
+  transition: all 0.3s;
+}
+
+.btn-primary:hover {
+  background: #7a2f8d;
+  transform: translateY(-2px);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--negro);
+  border: 2px solid var(--negro);
+  padding: 12px 28px;
+  text-decoration: none;
+  border-radius: 30px;
+  display: inline-block;
+  font-weight: 600;
+  transition: all 0.3s;
+}
+
+.btn-outline:hover {
+  background: var(--negro);
+  color: white;
+}
+/* === 7. CTA FINAL ================================================== */
+.cta-full {
+  background: var(--beige);
+  color: var(--negro);
+  text-align: center;
+  padding: 80px 0;
+}
+
+.cta-full h2 {
+  font-size: 2.2em;
+  margin-bottom: 15px;
+  color: var(--negro);
+}
+
+.cta-full p {
+  max-width: 600px;
+  margin: 0 auto 30px;
+  color: var(--gris-oscuro);
+  font-size: 1.1em;
+}
+/* === 8. FOOTER ===================================================== */
+.footer {
+  background: var(--footer-bg);
+  color: var(--beige);
+  padding: 30px 0 15px;
+  font-size: 0.85em;
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: 2fr 1fr 2fr 2fr;
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-logo-img {
+  height: 60px;
+  width: auto; /* ← Esto mantiene la proporción */
+  transition: transform 0.3s ease;
+}
+
+.footer-contact a {
+  color: var(--blanco);
+  text-decoration: none;
+}
+
+.social-links a {
+  color: var(--blanco);
+  text-decoration: none;
+}
+
+.footer-legal a {
+  color: var(--blanco);
+  text-decoration: none;
+}
+/* === 9. WHATSAPP FLUTUANTE ======================================== */
+.whatsapp-btn {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 60px;
+  height: 60px;
+  background: #25D366;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8em;
+  text-decoration: none;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  z-index: 1000;
+}
+/* === 10. SAKURA FLOTANDO =========================================== */
+.sakura-fall {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.2;
+}
+
+.petal {
+  position: absolute;
+  font-size: 1.5em;
+  opacity: 0;
+  animation: fall-sakura 25s linear infinite;
+}
+
+@keyframes fall-sakura {
+  0% { transform: translateY(-10px) rotate(0deg); opacity: 0; }
+  10% { opacity: 0.7; }
+  90% { opacity: 0.7; }
+  100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+}
+/* === 11. RESPONSIVE (móviles) ====================================== */
+@media (max-width: 768px) {
+  .nav { display: none; }
+  .mobile-toggle { display: block; }
+  .hero-title-coords {
+    font-size: 2.2em;
+    top: 35%;
+  }
+  .hero-subtitle-coords {
+    font-size: 1em;
+    top: 48%;
+  }
+  .hero-btn-coords {
+    top: 60%;
+  }
+  .pilares-pergamino .section-title {
+    font-size: 1.8em;
+  }
+  .pilar-manuscrito {
+    padding: 20px 30px;
+  }
+  .footer-content {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .footer-contact,
+  .footer-social {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+/* === HERO GENÉRICO REUTILIZABLE === */
+.hero-section {
+  position: relative;
+  height: 80vh;
+  overflow: hidden;
+  margin-top: 60px; /* altura del header fijo */
+}
+
+.hero-section .hero-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  z-index: -1;
+}
+
+.hero-section .hero-bg::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(144, 58, 168, 0.2), rgba(0,0,0,0.6));
+  z-index: -1;
+}
+
+.hero-section .hero-content {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 0 20px;
+  color: white;
+}
+
+.hero-section .hero-title {
+  font-size: 3.5em;
+  font-family: var(--font-devanagari);
+  text-shadow: 0 2px 10px rgba(0,0,0,0.7);
+  margin: 0;
+  max-width: 90%;
+}
+
+.hero-section .hero-subtitle {
+  font-size: 1.4em;
+  margin: 20px 0;
+  max-width: 700px;
+  text-shadow: 0 1px 5px rgba(0,0,0,0.7);
+}
+
+.hero-section .hero-cta {
+  margin-top: 20px;
+}
+
+/* === CORRECCIONES MÓVIL - SOBRE-MI.HTML === */
+@media (max-width: 768px) {
+  /* Menú hamburguesa: visible y accesible */
+  .mobile-toggle {
+    display: block !important;
+    position: fixed !important;
+    top: 7px !important;
+    right: 25px !important;
+    z-index: 2000;
+    color: var(--negro);
+    font-size: 1.8em;
+    cursor: pointer;
+  }
+
+  .nav {
+    display: none;
+    position: absolute;
+    top: 30px;
+    left: 0;
+    width: 100%;
+    background: var(--beige);
+    padding: 15px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    flex-direction: column;
+    gap: 15px;
+    z-index: 1999;
+  }
+
+  .nav.mobile-open {
+    display: flex !important;
+  }
+
+  /* Hero: convertir a layout centrado en móvil */
+  .hero-title-coords,
+  .hero-subtitle-coords,
+  .hero-btn-coords {
+    position: static !important;
+    transform: none !important;
+    left: auto !important;
+    top: auto !important;
+    text-align: center !important;
+    white-space: normal !important;
+    max-width: 90% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  .hero-title-coords {
+    font-size: 2em;
+    margin-top: 30vh;
+    margin-bottom: 20px;
+  }
+
+  .hero-subtitle-coords {
+    font-size: 1.1em;
+    margin: 10px auto 25px;
+  }
+
+  .hero-btn-coords {
+    margin-top: 20px;
+  }
+
+  .hero-btn-coords .btn-primary {
+    width: 100%;
+    max-width: 280px;
+    margin: 0 auto;
+  }
+
+  /* Ajustar margen superior (el hero ya no necesita compensar tanto) */
+  .hero {
+    margin-top: 60px;
+    height: 90vh;
+  }
+
+  /* Pergamino: mejorar legibilidad en móvil */
+  .parchment {
+    padding: 30px 20px;
+    margin: 60px 15px;
+  }
+
+  .parchment-content {
+    text-align: left;
+    font-size: 0.95em;
+    line-height: 1.6;
+  }
+
+  .parchment-content h2 {
+    font-size: 1.8em;
+    margin-bottom: 15px;
+  }
+
+  .parchment-content blockquote {
+    padding: 15px;
+    font-size: 1em;
+    margin: 20px 0;
+  }
+
+  /* Pilares del camino */
+  .pilares-pergamino .section-title {
+    font-size: 1.6em;
+  }
+
+  .pilar-manuscrito {
+    padding: 20px;
+    margin: 0 15px 30px;
+  }
+
+  .pilar-manuscrito h3 {
+    font-size: 1.4em;
+  }
+
+  /* Footer: una sola columna */
+  .footer-content {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .footer-contact,
+  .footer-social {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+
+  /* CTA final */
+  .cta-full h2 {
+    font-size: 1.8em;
+  }
+
+  .cta-full p {
+    font-size: 1em;
+  }
+}
+/* === 9. WHATSAPP Y OTROS =========================================== */
+.whatsapp-btn {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 60px;
+  height: 60px;
+  background: #25D366;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8em;
+  text-decoration: none;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  z-index: 1000;
+}
+
+.whatsapp-btn img {
+  width: 32px;
+  height: auto;
+  display: block;
+}

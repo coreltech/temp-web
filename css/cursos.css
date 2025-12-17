@@ -1,0 +1,791 @@
+/* =================================================================== */
+/* === CURSOS.CSS - ESTILOS EXCLUSIVOS DE cursos.html ========== */
+/* Proyecto: Aizen Mystic                                              */
+/* Página: servicios.html                                              */
+/* Fecha: 10 de septiembre de 2025                                     */
+/* Versión: Modular, limpia, sin dependencias                          */
+/* =================================================================== */
+
+/* === 1. VARIABLES Y TIPOGRAFÍA ====================================== */
+:root {
+  --morado: #903AA8;
+  --beige: #F8F5F2;
+  --negro: #3E2723;
+  --gris-oscuro: #5D4037;
+  --gris-medio: #E6D5C3;
+  --footer-bg: #3E2723;
+  --font-devanagari: 'Adobe Devanagari', serif;
+  --font-sybilla: 'SybillaPro-Book', 'Playfair Display', serif;
+}
+
+@font-face {
+  font-family: 'Adobe Devanagari';
+  src: url('fonts/AdobeDevanagari-Regular.woff2') format('woff2'),
+       url('fonts/AdobeDevanagari-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'SybillaPro-Book';
+  src: url('fonts/SybillaPro-Book.woff2') format('woff2'),
+       url('fonts/SybillaPro-Book.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+body {
+  font-family: var(--font-sybilla);
+  color: #1A1A1A;
+  background: var(--beige);
+  line-height: 1.7;
+}
+
+h1, h2, h3, .highlight {
+  font-family: var(--font-devanagari);
+}
+
+/* === 2. HEADER ===================================================== */
+.header {
+  background-color: var(--beige);
+  background-image: url('../img/fondo-sakura-header.jpg');
+  background-repeat: no-repeat;
+  background-position: left center;
+  background-size: auto 80%;
+  border-bottom: 1px solid var(--gris-medio);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+}
+
+.header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 60px;
+  padding: 0 15px;
+  position: relative;
+  z-index: 2;
+}
+
+.header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--beige);
+  opacity: 0.75;
+  z-index: -1;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+
+.logo-img {
+  height: 60px;
+  width: auto; /* ← Esto mantiene la proporción */
+  transition: transform 0.3s ease;
+}
+
+.logo-img:hover {
+  transform: scale(1.05);
+}
+
+.logo-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 700;
+  font-size: 1.5em;
+  color: var(--negro);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  transition: color 0.3s ease;
+}
+
+.logo:hover .logo-text {
+  color: var(--morado);
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  margin-left: auto;
+}
+
+.nav a {
+  font-size: 1.05em;
+  color: var(--negro);
+  text-decoration: none;
+  padding: 5px 0;
+  position: relative;
+}
+
+.nav a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--morado);
+  transition: width 0.3s ease;
+}
+
+.nav a:hover::after {
+  width: 100%;
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.nav-cart-icon,
+.lang-icon {
+  font-size: 1.3em;
+  color: var(--morado);
+}
+
+.nav-cart-count {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  background: var(--morado);
+  color: white;
+  font-size: 0.7em;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+}
+
+.mobile-toggle {
+  display: none;
+  font-size: 1.5em;
+  cursor: pointer;
+  color: var(--negro);
+}
+
+/* === HERO DE CURSOS - CORREGIDO PARA ESCRITORIO Y MÓVIL === */
+.hero-cursos {
+  position: relative;
+  height: 80vh;
+  margin-top: 60px; /* altura del header fijo */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start; /* texto a la izquierda en escritorio */
+  padding: 0 10%;
+  overflow: hidden;
+}
+
+.hero-cursos .hero-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  z-index: -2;
+}
+
+.hero-cursos .hero-bg::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, rgba(144, 58, 168, 0.4), rgba(0,0,0,0.7));
+  z-index: -1;
+}
+
+.hero-cursos .hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 600px;
+  color: white;
+  text-align: left;
+}
+
+.hero-cursos .hero-title {
+  font-family: var(--font-devanagari);
+  font-size: 3em;
+  margin: 0;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.7);
+}
+
+.hero-cursos .hero-subtitle {
+  font-size: 1.2em;
+  margin: 15px 0;
+  text-shadow: 0 1px 5px rgba(0,0,0,0.7);
+  line-height: 1.5;
+}
+
+/* === MÓVIL: centrar todo === */
+@media (max-width: 768px) {
+  .hero-cursos {
+    height: auto;
+    min-height: 70vh;
+    padding: 0 5%;
+    margin-top: 60px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  .hero-cursos .hero-content {
+    max-width: 95%;
+    text-align: center;
+    margin-top: 0;
+  }
+
+  .hero-cursos .hero-title {
+    font-size: 2em;
+    line-height: 1.2;
+  }
+
+  .hero-cursos .hero-subtitle {
+    font-size: 1.1em;
+  }
+
+  .hero-cursos .btn-primary {
+    width: 100%;
+    max-width: 280px;
+    margin: 20px auto 0;
+  }
+}
+
+/* === 4. ANIMACIONES DE ENTRADA ===================================== */
+.anim-element {
+  position: fixed;
+  top: 30%;
+  left: -150px;
+  transform: translateY(-50%) rotate(0deg);
+  z-index: 99999;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.anim-img {
+  width: 80px;
+  height: auto;
+  border-radius: 8px;
+  filter: drop-shadow(0 0 15px rgba(144, 58, 168, 0.8));
+}
+
+@keyframes slideToCenter {
+  0% { left: -150px; transform: translateY(-50%) rotate(0deg); opacity: 0; }
+  10% { opacity: 1; }
+  100% { left: 54%; margin-left: -60px; transform: translateX(-50%) translateY(-50%) rotate(360deg); opacity: 1; }
+}
+
+@keyframes slideToRight {
+  0% { left: 54%; margin-left: -60px; transform: translateX(-50%) translateY(-50%) rotate(360deg); opacity: 1; }
+  100% { left: calc(100% - 130px); transform: translateX(-100%) translateY(-50%) rotate(720deg); opacity: 0; }
+}
+
+.anim-element.slide-center {
+  animation: slideToCenter 1.8s ease-out forwards;
+}
+
+.anim-element.slide-right {
+  animation: slideToRight 1.5s ease-out forwards;
+}
+
+/* === SERVICIOS: TARJETAS CON IMAGEN CUADRADA 1:1 Y ALINEACIÓN SUPERIOR === */
+.service-card-full {
+  display: flex;
+  align-items: flex-start;
+  gap: 40px;
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+  margin-bottom: 50px;
+  padding: 30px;
+  box-sizing: border-box;
+  
+}
+
+.service-card-full .service-image {
+  width: 280px;
+  height: 280px;
+  flex: 0 0 auto;
+  overflow: hidden;
+  position: relative;
+  border-radius: 8px;
+}
+
+.service-card-full .service-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.service-card-full .service-content {
+  flex: 1 1 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-self: flex-start;
+}
+
+.service-content h3 {
+  margin-bottom: 15px;
+  color: var(--morado);
+  font-size: 1.5em;
+}
+
+.service-content p {
+  margin-bottom: 10px;
+  line-height: 1.6;
+  color: var(--gris-oscuro);
+}
+
+/* === 6. BOTONES ==================================================== */
+.btn-primary {
+  background: var(--morado);
+  color: white;
+  padding: 12px 28px;
+  text-decoration: none;
+  border-radius: 30px;
+  display: inline-block;
+  font-weight: 600;
+  transition: all 0.3s;
+}
+
+.btn-primary:hover {
+  background: #7a2f8d;
+  transform: translateY(-2px);
+}
+
+.btn-small {
+  display: block;
+  margin: 0 auto 15px;
+  padding: 10px 20px;
+  background: var(--morado);
+  color: white;
+  text-decoration: none;
+  font-size: 0.95em;
+  border-radius: 25px;
+  transition: background 0.3s, transform 0.2s;
+  width: fit-content;
+  font-weight: 600;
+}
+
+.btn-small:hover {
+  background: #7a2f8d;
+  transform: translateY(-2px);
+}
+
+/* === 7. CTA FINAL ================================================== */
+.cta-full {
+  background: var(--beige);
+  color: var(--negro);
+  text-align: center;
+  padding: 80px 0;
+}
+
+.cta-full h2 {
+  font-size: 2.2em;
+  margin-bottom: 15px;
+  color: var(--negro);
+}
+
+.cta-full p {
+  max-width: 600px;
+  margin: 0 auto 30px;
+  color: var(--gris-oscuro);
+  font-size: 1.1em;
+}
+
+/* === 8. FOOTER ===================================================== */
+.footer {
+  background: var(--footer-bg);
+  color: var(--beige);
+  padding: 30px 0 15px;
+  font-size: 0.85em;
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: 2fr 1fr 2fr 2fr;
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-logo-img {
+  height: 60px;
+  width: auto; /* ← Esto mantiene la proporción */
+  transition: transform 0.3s ease;
+}
+
+.footer-contact a,
+.social-links a,
+.footer-legal a {
+  color: var(--morado);
+  text-decoration: none;
+}
+
+/* === 9. WHATSAPP Y OTROS =========================================== */
+.whatsapp-btn {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 60px;
+  height: 60px;
+  background: #25D366;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8em;
+  text-decoration: none;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  z-index: 1000;
+}
+
+/* === 10. RESPONSIVE (móviles) ====================================== */
+@media (max-width: 768px) {
+  .nav { display: none; }
+  .mobile-toggle { display: block; }
+  .service-card-full {
+    flex-direction: column;
+    align-items: center;
+  }
+  .service-card-full .service-image {
+    width: 280px;
+  }
+  .service-content {
+    width: 100%;
+    align-self: stretch;
+    padding: 20px 30px;
+  }
+  .hero-services h1 { font-size: 2.2em; }
+  .footer-content { grid-template-columns: 1fr; text-align: center; }
+  .footer-contact, .footer-social { display: flex; flex-direction: column; align-items: center; }
+}
+
+@media (max-width: 768px) {
+  .hero-title-coords {
+    font-size: 2.2em;
+    white-space: normal;
+    max-width: 90%;
+  }
+
+  .hero-subtitle-coords {
+    font-size: 1em;
+    white-space: normal;
+    max-width: 90%;
+  }
+}
+
+/* === HERO GENÉRICO REUTILIZABLE === */
+.hero-section {
+  position: relative;
+  height: 80vh;
+  overflow: hidden;
+  margin-top: 60px;
+}
+
+.hero-section .hero-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  z-index: -1;
+}
+
+.hero-section .hero-bg::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(144, 58, 168, 0.2), rgba(0,0,0,0.6));
+  z-index: -1;
+}
+
+.hero-section .hero-content {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 0 20px;
+  color: white;
+}
+
+.hero-section .hero-title {
+  font-size: 3.5em;
+  font-family: var(--font-devanagari);
+  text-shadow: 0 2px 10px rgba(0,0,0,0.7);
+  margin: 0;
+  max-width: 90%;
+}
+
+.hero-section .hero-subtitle {
+  font-size: 1.4em;
+  margin: 20px 0;
+  max-width: 700px;
+  text-shadow: 0 1px 5px rgba(0,0,0,0.7);
+}
+
+.hero-section .hero-cta {
+  margin-top: 20px;
+}
+
+/* Responsive móvil para hero genérico */
+@media (max-width: 768px) {
+  .hero-section {
+    height: 90vh;
+    margin-top: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 15px;
+  }
+
+  .hero-section .hero-bg,
+  .hero-section .hero-bg::before {
+    position: absolute;
+  }
+
+  .hero-section .hero-content {
+    width: 100%;
+    max-width: 600px;
+    padding: 0;
+  }
+
+  .hero-section .hero-title {
+    font-size: 2.2em;
+    line-height: 1.2;
+    white-space: normal;
+  }
+
+  .hero-section .hero-subtitle {
+    font-size: 1.1em;
+    white-space: normal;
+  }
+
+  .hero-section .hero-cta {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+    max-width: 300px;
+    margin: 20px auto 0;
+  }
+
+  .hero-section .hero-cta a {
+    width: 100%;
+    text-align: center;
+  }
+}
+/* === Menú móvil accesible === */
+.nav.mobile-open {
+  display: flex !important;
+  flex-direction: column;
+  position: absolute;
+  top: 60px;
+  left: 0;
+  width: 100%;
+  background: var(--beige);
+  padding: 15px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  gap: 15px;
+  z-index: 999;
+}
+/* === CORRECCIONES MÓVIL - SERVICIOS.HTML (NO TOCA ESCRITORIO) === */
+@media (max-width: 768px) {
+  /* Menú hamburguesa funcional */
+  .nav {
+    display: none;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    background: var(--beige);
+    padding: 15px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    flex-direction: column;
+    gap: 15px;
+    z-index: 999;
+  }
+
+  .nav.mobile-open {
+    display: flex !important;
+  }
+
+  .mobile-toggle {
+    display: block;
+  }
+
+  /* Hero: convertir a layout centrado en móvil */
+  .hero-title-coords,
+  .hero-subtitle-coords,
+  .hero-btn-coords,
+  .hero-logo-center-coords {
+    position: static !important;
+    transform: none !important;
+    left: auto !important;
+    top: auto !important;
+    text-align: center !important;
+    white-space: normal !important;
+    max-width: 90% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  .hero-logo-center-coords {
+    margin-top: 30vh;
+    margin-bottom: 20px;
+  }
+
+  .hero-title-coords {
+    font-size: 2em;
+    margin: 20px auto;
+  }
+
+  .hero-subtitle-coords {
+    font-size: 1.1em;
+    margin: 10px auto 25px;
+  }
+
+  .hero-btn-coords {
+    margin-top: 20px;
+  }
+
+  .hero-btn-coords .btn-primary {
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+    padding: 12px;
+    font-size: 1em;
+  }
+
+  /* Tarjetas de servicio: apilar en móvil */
+  .service-card-full {
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+
+  .service-card-full .service-image {
+    width: 100%;
+    max-width: 280px;
+    height: auto;
+  }
+
+  .service-card-full .service-image img {
+    position: static;
+    height: auto;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  /* Footer: apilar columnas */
+  .footer-content {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .footer-contact,
+  .footer-social {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+}
+@media (max-width: 768px) {
+  .mobile-toggle {
+    display: block !important;
+    position: fixed !important;
+    top: 10px !important;
+    right: 40px !important; /* ✅ Solución adaptativa */
+    z-index: 9999 !important;
+    background: white !important;
+    color: #1A1A1A !important;
+    border: 2 mim solid #903AA8 !important;
+    width: 44px !important;
+    height: 44px !important;
+    border-radius: 50% !important;
+    font-size: 20px !important;
+    cursor: pointer !important;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+}
+/* === 9. WHATSAPP Y OTROS =========================================== */
+.whatsapp-btn {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 60px;
+  height: 60px;
+  background: #25D366;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8em;
+  text-decoration: none;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  z-index: 1000;
+}
+
+.whatsapp-btn img {
+  width: 32px;
+  height: auto;
+  display: block;
+}
+.course-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 1.5rem;
+}
+
+.course-icon {
+  width: 90px;
+  height: 90px;
+  flex-shrink: 0;
+  object-fit: contain;
+  opacity: 0.9;
+}
+
+.course-header > div {
+  flex: 1;
+}
