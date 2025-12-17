@@ -1,0 +1,155 @@
+<!-- ===== COPIA Y PEGA ESTO EN UN NUEVO ARCHIVO DENTRO DE /posts/ ===== -->
+<!-- Nombre del archivo: posts/tu-titulo-en-minusculas-y-guiones.html -->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="[ESCRIBE UNA DESCRIPCIÓN BREVE Y PODEROSA PARA SEO – máximo 160 caracteres]">
+  <title>[TÍTULO DEL ARTÍCULO] | Aizen Mystic</title>
+
+  <!-- AOS -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <!-- Estilos -->
+  <link rel="stylesheet" href="../css/blog.css" />
+  <!-- Favicon -->
+  <link rel="icon" href="../img/favicon.png" type="image/png">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header" data-aos="fade-down">
+    <div class="container">
+      <a href="../index.html" class="logo">
+        <img src="../img/logo.png" alt="Aizen Mystic" class="logo-img">
+        <span class="logo-text">AIZEN MYSTIC</span>
+      </a>
+      <nav class="nav">
+        <a href="../index.html">Inicio</a>
+        <a href="../servicios.html">Servicios</a>
+        <a href="../blog.html">Blog</a>
+        <a href="../sobre-mi.html">Sobre Mí</a>
+        <a href="../cursos.html">Cursos</a>
+        <a href="../contacto.html">Contacto</a>
+        <div class="nav-actions">
+          <a href="#" class="lang-switch" onclick="toggleLang(event)" aria-label="Cambiar idioma">
+            <span class="lang-icon">🌐</span>
+          </a>
+        </div>
+      </nav>
+      <div class="mobile-toggle" aria-expanded="false" role="button" aria-label="Menú móvil">☰</div>
+    </div>
+  </header>
+
+  <!-- Contenido del artículo -->
+  <main class="post-page">
+    <div class="container" data-aos="fade-up">
+      <a href="../blog.html" class="back-link">← Volver al blog</a>
+
+      <article class="post-full">
+        <div class="post-meta">
+          <span class="post-category">[CATEGORÍA: ej. Sanación, Autoconocimiento, Tarot, etc.]</span>
+          <time class="post-date">[FECHA: ej. 5 de diciembre de 2025]</time>
+        </div>
+        <h1>[TÍTULO PRINCIPAL DEL ARTÍCULO]</h1>
+        
+        <!-- (Opcional) Autor -->
+        <p class="post-author">🌟 Por [Nombre del autor]<br>
+        <em>[Breve rol o especialidad]</em></p>
+
+        <!-- Imagen destacada -->
+        <img class="post-hero-img" src="../img/post-[nombre-del-post].jpg" alt="[Descripción alternativa: ej. Mujer meditando en bosque al amanecer]">
+
+        <div class="post-body">
+          <!-- === PEGA TU CONTENIDO AQUÍ EN HTML === -->
+          <!-- Usa <p>, <h2>, <h3>, <ul>, <blockquote>, etc. -->
+          <!-- Ejemplo: -->
+          <!--
+          <p>Este es el primer párrafo del artículo...</p>
+          <h2>Subtítulo con significado</h2>
+          <p>...</p>
+          -->
+        </div>
+      </article>
+
+      <!-- CTA (modifica según el tema) -->
+      <section class="post-cta" data-aos="fade-up">
+        <h3>[PREGUNTA QUE RESUENE CON EL LECTOR]</h3>
+        <p>[Breve invitación empática o espiritual].</p>
+        <a href="../contacto.html" class="btn-primary">Agendar una sesión</a>
+      </section>
+    </div>
+  </main>
+
+  <!-- Newsletter -->
+  <section class="newsletter">
+    <div class="container">
+      <h2>Recibe guías espirituales</h2>
+      <p>Únete a nuestra comunidad y recibe contenido exclusivo, meditaciones y invitaciones a talleres.</p>
+      <form class="newsletter-form">
+        <input type="email" placeholder="Tu correo electrónico" required />
+        <button type="submit" class="btn-primary">Suscribirme</button>
+      </form>
+      <p class="small">Prometemos no enviar spam. Solo luz.</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-logo">
+          <img src="../img/logo2.png" alt="Aizen Mystic" class="footer-logo-img">
+          <p>Transforma tu energía. Evoluciona tu alma.</p>
+        </div>
+        <div class="footer-contact">
+          <h5>✉️ aizenmysticweb@gmail.com</h5>
+          <h5>📱 <a href="https://wa.me/584244369819" target="_blank">WhatsApp</a></h5>
+        </div>
+        <div class="footer-social">
+          <p>Sígueme en:</p>
+          <div class="social-links">
+            <a href="#" target="_blank">Instagram</a> •
+            <a href="#" target="_blank">YouTube</a> •
+            <a href="#" target="_blank">TikTok</a>
+          </div>
+        </div>
+        <div class="footer-legal">
+          <p>&copy; 2025 Aizen Mystic. Todos los derechos reservados.</p>
+          <p><a href="#">Política de privacidad</a></p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/584244369819" class="whatsapp-btn" target="_blank" data-aos="fade-left">💬</a>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    // Menú móvil
+    const mobileToggle = document.querySelector('.mobile-toggle');
+    const nav = document.querySelector('.nav');
+    if (mobileToggle && nav) {
+      mobileToggle.addEventListener('click', () => {
+        nav.classList.toggle('mobile-open');
+        mobileToggle.setAttribute('aria-expanded', nav.classList.contains('mobile-open'));
+      });
+      document.querySelectorAll('.nav a').forEach(link => {
+        link.addEventListener('click', () => {
+          nav.classList.remove('mobile-open');
+          mobileToggle.setAttribute('aria-expanded', 'false');
+        });
+      });
+    }
+
+    function toggleLang(e) {
+      e.preventDefault();
+      const icon = document.querySelector('.lang-icon');
+      icon.textContent = icon.textContent === '🌐' ? '🌎' : '🌐';
+    }
+
+    AOS.init({ duration: 800, easing: 'ease-in-out', once: true });
+  </script>
+</body>
+</html>
